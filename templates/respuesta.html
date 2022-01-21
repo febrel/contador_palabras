@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+
+{% with messages= get_flashed_messages() %}
+{% if messages %}
+{% for men in messages %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <p>{{messages}}</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith%}
+
+
+{% endblock%}
+
+
+{% block content %}
+
+
+    <script>
+
+  $( document ).ready(function() {
+      $('#centralModalDanger').modal('toggle')
+  });
+    </script>
+
+  
+  <!-- Central Modal Medium Danger -->
+  <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-danger" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <p class="heading lead"> <strong> Resultado del Programa</strong>  </p>
+  
+          <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+  
+        <!--Body-->
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+            <p>El número de palabras es <strong> {{frase}} </strong> en total! </p>
+          </div>
+        </div>
+  
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+          <a href="{{url_for('index')}}" type="button" class="btn btn-danger">Volver <i class="far fa-gem ml-1 text-white"></i></a>
+          <!-- <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Salir</a> -->
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+
+  {% endblock %}

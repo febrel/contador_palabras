@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+
+{% with messages= get_flashed_messages() %}
+{% if messages %}
+{% for men in messages %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <p>{{messages}}</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith%}
+
+
+{% endblock%}
+
+
+{% block content %}
+
+<form method="post">
+  <div class="input-group mb-3 pt-3">
+
+    <div class="input-group-prepend">
+      <input class="btn btn-outline-secondary" type="submit" value="Enviar">
+    </div>
+
+    <!-- <input type="text" class="form-control" name="pregunta" id="pregunta" placeholder="" aria-label="" aria-describedby="basic-addon1"> -->
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="pregunta" id="pregunta"></textarea>
+
+  </div>
+</form>
+
+
+
+
+{% endblock %}
